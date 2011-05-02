@@ -30,7 +30,7 @@
 				</label>
 			</td>
 			<td>
-				<input class="text_area" type="text" name="fullname" id="fullname" size="32" maxlength="250" value="<?php echo $this->booking->fullname;?>" />
+				<input class="text_area" type="text" name="fullname" id="fullname" size="32" maxlength="250" value="" />
 			</td>
 		</tr>
         
@@ -41,7 +41,7 @@
 					<?php echo JText::_( 'Address' ); ?>:
 				</label>
 			</td>
-			<td><textarea class="text_area" type="text" name="address" id="address" cols="40" rows="4"> <?php echo $this->booking->address;?> </textarea></td>
+			<td><textarea class="text_area" name="address" id="address" cols="40" rows="4"></textarea></td>
 		</tr>
         
         <!--Gender-->
@@ -52,7 +52,7 @@
 				</label>
 			</td>
 			<td>
-				<input class="text_area" type="text" name="gender" id="gender" size="12" maxlength="250" value="<?php echo $this->booking->gender;?>" />
+				<input class="text_area" type="text" name="gender" id="gender" size="12" maxlength="250" value="" />
 			</td>
 		</tr>
         
@@ -64,7 +64,7 @@
 				</label>
 			</td>
 			<td>
-				<input class="text_area" type="text" name="dob" id="dob" size="20" maxlength="250" value="<?php echo $this->booking->dob;?>" />
+				<input class="text_area" type="text" name="dob" id="dob" size="20" maxlength="250" value="" />
 			</td>
 		</tr>
         
@@ -76,7 +76,7 @@
 				</label>
 			</td>
 			<td>
-				<input class="text_area" type="text" name="countries" id="countries" size="32" maxlength="250" value="<?php echo $this->booking->countries;?>" />
+				<input class="text_area" type="text" name="countries" id="countries" size="32" maxlength="250" value="" />
 			</td>
 		</tr>
         
@@ -88,7 +88,7 @@
 				</label>
 			</td>
 			<td>
-				<input class="text_area" type="text" name="mail" id="mail" size="32" maxlength="250" value="<?php echo $this->booking->mail;?>" />
+				<input class="text_area" type="text" name="mail" id="mail" size="32" maxlength="250" value="" />
 			</td>
 		</tr>
         
@@ -108,7 +108,7 @@
 				</label>
 			</td>
 			<td>
-				<input class="text_area" type="text" name="tcode" id="tcode" size="32" maxlength="250" value="<?php echo $this->booking->tcode;?>" />
+				<input class="text_area" type="text" name="tcode" id="tcode" size="32" maxlength="250" value="" />
 			</td>
 		</tr>
         
@@ -120,7 +120,7 @@
 				</label>
 			</td>
 			<td>
-				<input class="text_area" type="text" name="hotel" id="hotel" size="32" maxlength="250" value="<?php echo $this->booking->hotel;?>" />
+				<input class="text_area" type="text" name="hotel" id="hotel" size="32" maxlength="250" value="" />
 			</td>
 		</tr>
         
@@ -132,7 +132,7 @@
 				</label>
 			</td>
 			<td>
-				<input class="text_area" type="text" name="departuredate" id="departuredate" size="20" maxlength="250" value="<?php echo $this->booking->departuredate;?>" />
+				<input class="text_area" type="text" name="departuredate" id="departuredate" size="20" maxlength="250" value="" />
 			</td>
 		</tr>
         
@@ -144,12 +144,12 @@
 				</label>
 			</td>
 			<td>
-				Single: &nbsp; <input class="text_area" type="text" name="rp_single" id="rp_single" size="12" maxlength="250" value="<?php echo $this->booking->rp_single;?>" />
+				Single: &nbsp; <input class="text_area" type="text" name="rp_single" id="rp_single" size="12" maxlength="250" value="" />
 		
         
-				Double: &nbsp;<input class="text_area" type="text" name="rp_double" id="rp_double" size="12" maxlength="250" value="<?php echo $this->booking->rp_double;?>" />
+				Double: &nbsp;<input class="text_area" type="text" name="" />
 		
-				Twin: &nbsp;<input class="text_area" type="text" name="rp_twin" id="rp_twin" size="12" maxlength="250" value="<?php echo $this->booking->rp_twin;?>" />
+				Twin: &nbsp;<input class="text_area" type="text" name="rp_twin" id="rp_twin" size="12" maxlength="250" value="" />
 			</td>
 		</tr>
         
@@ -161,7 +161,7 @@
 				</label>
 			</td>
 			<td>
-				<input class="text_area" type="text" name="np_adult" id="np_adult" size="12" maxlength="250" value="<?php echo $this->booking->np_adult;?>" />
+				<input class="text_area" type="text" name="np_adult" id="np_adult" size="12" maxlength="250" value="" />
 			</td>
 		</tr>
         
@@ -173,7 +173,7 @@
 				</label>
 			</td>
 			<td>
-				<input class="text_area" type="text" name="np_child" id="np_child" size="12" maxlength="250" value="<?php echo $this->booking->np_child;?>" />
+				<input class="text_area" type="text" name="np_child" id="np_child" size="12" maxlength="250" value="" />
 			</td>
 		</tr>
         
@@ -185,7 +185,7 @@
 				</label>
 			</td>
 			<td>
-				<textarea class="text_area" type="text" name="detail" id="detail" cols="40" rows="5" > <?php echo $this->booking->detail;?></textarea>
+				<textarea class="text_area"  name="detail" id="detail" cols="40" rows="5" ></textarea>
 			</td>
 		</tr>
         
@@ -197,7 +197,7 @@
 <div class="clr"></div>
 
 <input type="hidden" name="option" value="com_ttbooking" />
-<input type="hidden" name="id" value="<?php echo $this->booking->id; ?>" />
+<input type="hidden" name="id" value="" />
 <input type="hidden" name="task" value="" />
 <input type="hidden" name="controller" value="ttbooking" />
 </form>
