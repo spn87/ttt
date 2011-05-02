@@ -3,7 +3,7 @@ class JConfig {
 /* Site Settings */
 var $offline = '0';
 var $offline_message = 'This site is down for maintenance.<br /> Please check back again soon.';
-var $sitename = 'abktourcom';
+var $sitename = 'www.abktours.com';
 var $editor = 'tinymce';
 var $list_limit = '20';
 var $legacy = '0';
