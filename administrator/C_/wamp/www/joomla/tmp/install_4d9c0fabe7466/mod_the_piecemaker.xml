@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<extension
+		type="module"
+		version="1.6.0"
+		client="site"
+		method="upgrade">
+	<name>The Piecemaker</name>
+	<author>Neerav Dobaria</author>
+	<creationDate>April 2011</creationDate>
+	<copyright>Released under GNU/GPL License</copyright>
+	<license>http://www.gnu.org/licenses/gpl-3.0-standalone.html</license>
+	<authorEmail>dobaria.neerav@gmail.com</authorEmail>
+	<authorUrl>http://www.vareen.co.cc/</authorUrl>
+	<version>1.3</version>
+	<description>&lt;h1&gt;Congratulations! You have successfully installed The Piecemaker&lt;/h1&gt;&lt;p&gt;For
+		documentation visit &lt;a href=&quot;www.vareen.co.cc/documentation/the-piecemaker-documentation/&quot;
+		title=&quot;The Piecemaker Documentation&quot;&gt;this&lt;/a&gt; page.&lt;/p&gt;</description>
+	<files>
+		<filename module="mod_the_piecemaker">mod_the_piecemaker.php</filename>
+		<filename>piecemakerNoShadow.swf</filename>
+		<filename>piecemakerShadow.swf</filename>
+		<folder>banner</folder>
+		<folder>js</folder>
+		<folder>fields</folder>
+	</files>
+	<config>
+		<fields name="params">
+			<fieldset name="basic" addfieldpath="/modules/mod_the_piecemaker/fields/">
+				<field name="image"
+				       type="textarea"
+				       default="modules/mod_the_piecemaker/banner/content/images/image1.jpg&#13;&#10;modules/mod_the_piecemaker/banner/content/images/image2.jpg&#13;&#10;modules/mod_the_piecemaker/banner/content/images/image3.jpg&#13;&#10;modules/mod_the_piecemaker/banner/content/images/image4.jpg&#13;&#10;modules/mod_the_piecemaker/banner/content/images/image5.jpg"
+				       label="Image"
+				       description="Enter absolute URL of images, separate with line break. Image must be within Joomla directory." cols="60" rows="5"/>
+				<field name="description"
+				       type="textarea"
+				       default="&lt;headline&gt;Description 1&lt;/headline&gt;&lt;break&gt;Ӂ&lt;/break&gt;&lt;paragraph&gt;Here you can add a description text for every single image.&lt;/paragraph&gt;&lt;break&gt;Ӂ&lt;/break&gt;&lt;inline&gt;This is HTML text loaded from the external XML file and formatted with an external CSS file. So it's pretty simple to set this text. You can also easily add&amp;#32;&lt;/inline&gt;&lt;a href=&quot;http://www.modularweb.net/piecemaker&quot; target=&quot;_blank&quot;&gt;Ӂhyperlinks&lt;/a&gt;&lt;paragraph&gt;. This one leads you to the official Piecemaker website, by the way.&lt;/paragraph&gt;&#13;&#10;&lt;headline&gt;Description 2&lt;/headline&gt;&lt;break&gt;Ӂ&lt;/break&gt;&lt;paragraph&gt;Here you can add a description text for every single image.&lt;/paragraph&gt;&lt;break&gt;Ӂ&lt;/break&gt;&lt;inline&gt;This is HTML text loaded from the external XML file and formatted with an external CSS file. So it's pretty simple to set this text. You can also easily add&amp;#32;&lt;/inline&gt;&lt;a href=&quot;http://www.modularweb.net/piecemaker&quot; target=&quot;_blank&quot;&gt;Ӂhyperlinks&lt;/a&gt;&lt;paragraph&gt;. This one leads you to the official Piecemaker website, by the way.&lt;/paragraph&gt;&#13;&#10;&lt;headline&gt;Description 3&lt;/headline&gt;&lt;break&gt;Ӂ&lt;/break&gt;&lt;paragraph&gt;Here you can add a description text for every single image.&lt;/paragraph&gt;&lt;break&gt;Ӂ&lt;/break&gt;&lt;inline&gt;This is HTML text loaded from the external XML file and formatted with an external CSS file. So it's pretty simple to set this text. You can also easily add&amp;#32;&lt;/inline&gt;&lt;a href=&quot;http://www.modularweb.net/piecemaker&quot; target=&quot;_blank&quot;&gt;Ӂhyperlinks&lt;/a&gt;&lt;paragraph&gt;. This one leads you to the official Piecemaker website, by the way.&lt;/paragraph&gt;&#13;&#10;&lt;headline&gt;Description 4&lt;/headline&gt;&lt;break&gt;Ӂ&lt;/break&gt;&lt;paragraph&gt;Here you can add a description text for every single image.&lt;/paragraph&gt;&lt;break&gt;Ӂ&lt;/break&gt;&lt;inline&gt;This is HTML text loaded from the external XML file and formatted with an external CSS file. So it's pretty simple to set this text. You can also easily add&amp;#32;&lt;/inline&gt;&lt;a href=&quot;http://www.modularweb.net/piecemaker&quot; target=&quot;_blank&quot;&gt;Ӂhyperlinks&lt;/a&gt;&lt;paragraph&gt;. This one leads you to the official Piecemaker website, by the way.&lt;/paragraph&gt;&#13;&#10;&lt;headline&gt;Description 5&lt;/headline&gt;&lt;break&gt;Ӂ&lt;/break&gt;&lt;paragraph&gt;Here you can add a description text for every single image.&lt;/paragraph&gt;&lt;break&gt;Ӂ&lt;/break&gt;&lt;inline&gt;This is HTML text loaded from the external XML file and formatted with an external CSS file. So it's pretty simple to set this text. You can also easily add&amp;#32;&lt;/inline&gt;&lt;a href=&quot;http://www.modularweb.net/piecemaker&quot; target=&quot;_blank&quot;&gt;Ӂhyperlinks&lt;/a&gt;&lt;paragraph&gt;. This one leads you to the official Piecemaker website, by the way.&lt;/paragraph&gt;&#13;&#10;"
+				       label="Description"
+				       description="Enter description of images, enter empty line break if you don't want to display description for image"
+				       cols="60" rows="5"/>
+				<field name="rebuildcache"
+				       type="radio"
+				       default="0"
+				       label="Rebuild Cache"
+				       description="Set this to 'Yes' when you change above images and it's description to rebuild cache. Don't forget to change it back to 'No' after you confirm your change is applied in front end for optimal performance.">
+					<option value="0">No</option>
+					<option value="1">Yes</option>
+				</field>
+			</fieldset>
+
+			<fieldset name="advanced">
+				<field name="moduleclass_sfx" type="text" default="" label="Module Class Suffix"
+				       description="A suffix to be applied to the css class of the module (table.moduletable), this allows individual module styling"/>
+				<field name="shadow" type="radio" default="0" label="Shadow"
+				       description="Select whether you want shadow or not.">
+					<option value="0">No</option>
+					<option value="1">Yes</option>
+				</field>
+				<field name="width" type="text" default="560" label="Width" description="Set the module width. Must be equal to image width."/>
+				<field name="height" type="text" default="374" label="Height" description="Set the module height. Must be equal to image height."/>
+				<field name="segments" type="text" default="7" label="Number of segments"
+				       description="Number of segments, in which the images will be sliced"/>
+				<field name="tweenTime" type="text" default="1.2" label="Tween time"
+				       description="Number of seconds to turn each element."/>
+				<field name="tweenDelay" type="text" default="0.1" label="Tween delay"
+				       description="Number of seconds from one element starting to turn to the next element starting"/>
+				<field name="tweenType" type="list" default="easeInOutBack" label="Tween type"
+				       description="Type of transition">
+					<option value="linear">linear</option>
+					<option value="easeInQuad">easeInQuad</option>
+					<option value="easeOutQuad">easeOutQuad</option>
+					<option value="easeInOutQuad">easeInOutQuad</option>
+					<option value="easeInCubic">easeInCubic</option>
+					<option value="easeOutCubic">easeOutCubic</option>
+					<option value="easeInOutCubic">easeInOutCubic</option>
+					<option value="easeInQuart">easeInQuart</option>
+					<option value="easeOutQuart">easeOutQuart</option>
+					<option value="easeInOutQuart">easeInOutQuart</option>
+					<option value="easeInQuint">easeInQuint</option>
+					<option value="easeOutQuint">easeOutQuint</option>
+					<option value="easeInOutQuint">easeInOutQuint</option>
+					<option value="easeInSine">easeInSine</option>
+					<option value="easeOutSine">easeOutSine</option>
+					<option value="easeInOutSine">easeInOutSine</option>
+					<option value="easeInExpo">easeInExpo</option>
+					<option value="easeOutExpo">easeOutExpo</option>
+					<option value="easeInOutExpo">easeInOutExpo</option>
+					<option value="easeInCirc">easeInCirc</option>
+					<option value="easeOutCirc">easeOutCirc</option>
+					<option value="easeInOutCirc">easeInOutCirc</option>
+					<option value="easeInElastic">easeInElastic</option>
+					<option value="easeOutElastic">easeOutElastic</option>
+					<option value="easeInOutElastic">easeInOutElastic</option>
+					<option value="easeInBack">easeInBack</option>
+					<option value="easeOutBack">easeOutBack</option>
+					<option value="easeInOutBack">easeInOutBack</option>
+					<option value="easeInBounce">easeInBounce</option>
+					<option value="easeOutBounce">easeOutBounce</option>
+					<option value="easeInOutBounce">easeInOutBounce</option>
+				</field>
+				<field name="zDistance" type="text" default="0" label="Z Distance"
+				       description="To which extent are the cubes moved on z axis when being tweened. Negative values bring the cube closer to the camera, positive values take it further away. A good range is roughly between -200 and 700"/>
+				<field name="expand" type="text" default="20" label="Expand"
+				       description="To which extent are the cubes moved away from each other when tweening"/>
+
+				<field name="innerColor" type="kubrick" default="#111111" label="Inner color"
+				       description="Select color of the sides of the elements"/>
+				<field name="textBackground" type="kubrick" default="#0064C8" label="Text background"
+				       description="Select color of the description text background"/>
+				<field name="shadowDarkness" type="text" default="100" label="Shadow darkness"
+				       description="To which extent are the sides shadowed, when the elements are tweening and the sided move towards the background. 100 is black, 0 is no darkening"/>
+				<field name="textDistance" type="text" default="25" label="Text distance"
+				       description="Distance of the info text to the borders of its background"/>
+				<field name="autoplay" type="text" default="12" label="Autoplay"
+				       description="Number of seconds to the next image, when autoplay is on. Set 0, if you do not want autoplay"/>
+			</fieldset>
+		</fields>
+	</config>
+</extension>

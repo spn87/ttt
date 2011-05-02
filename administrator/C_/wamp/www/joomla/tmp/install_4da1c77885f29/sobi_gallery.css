@@ -1,0 +1,253 @@
+
+/* Style Sheet of Gallery Plugin for SOBI 2 Component sobi_gallery.css         */
+/* --------------------------------------------------------------------------- */
+/* Copyright (C) 2006-2007 Sigsiu.NET (www.sigsiu.net). All rights reserved.   */
+/* The SOBI2 Gallery Plugin is free software; you can redistribute it and/or   */
+/* modify it under the terms of the GNU General Public License as published by */
+/* the Free Software Foundation.                                               */
+/* Authors: Sigrid & Radek Suski, Sigsiu.NET                                   */
+
+
+/* Styles for Cards View */
+/* --------------------------------------- */
+td.sobi_gallery_VC {
+	padding-left: 8px;
+}
+.sobiGalleryImage {
+}
+.sobiGalleryImage img {
+	padding: 5px 5px 5px 10px;
+	vertical-align: top;
+	float: left;
+}
+.sobiGalleryImage_caption {
+	color: #999999;
+	padding: 0px 5px 5px 10px;
+	text-align: center;
+	float: left;
+	clear: both;
+}
+
+/* Styles for Details View */
+/* --------------------------------------- */
+table.sobi_gallery {
+	width: 98%;
+	border-style: none;
+}
+table.sobi_gallery td {
+	width: 100%;
+	border: solid 1px #c0c0c0;
+	text-align: center;
+}
+td.sobi_gallery_emptycell {
+	border: none 0px!important;
+}
+table.sobi_gallery img {
+	border-style: none;
+}
+div.sobi_gallery_noimage {
+	padding-left: 10px;
+	font-weight: bold;
+}
+
+/* Styles for Add/Edit Entry Form */
+/* --------------------------------------- */
+/* Upload images */
+iframe.sobi2_gallery_frame  {
+	background-color: #FFFFFF!important;
+}
+table.sobi_gallery_GformBox {
+	vertical-align: top;
+	width: 98%;
+	border-style: none;
+	float: left;
+	clear: both;
+}
+table.sobi_gallery_GformBox td {
+	width: 100%;
+	border-style: none;
+	text-align: left;
+	vertical-align: top;
+	padding: 0px;
+	margin: 0px;
+}
+span.sobi_gallery_GtitleBox {
+}
+
+/* Description field */
+.inputbox#sobi_gallery_Gimg_title {
+	width: 150px;
+}
+
+/* Styles for Image Preview in add/edit Entry form */
+div#sobi_gallery_GalleryBox {
+	float:left;
+	width: 99%;
+	vertical-align: top;
+}
+div.sobi_gallery_GimageBox {
+	border: none;
+	float: left;
+	font-size: 10px;
+	min-width: 100px;
+	text-align: center;
+	padding: 1px 5px 2px 0px;
+}
+div.sobi_gallery_GimageBox div{
+	border-style: none;
+	clear: left;
+}
+div.sobi_gallery_GimageBox img {
+	border-style: none;
+	clear: right;
+}
+
+div.sobi_gallery_GdelBox  {
+	clear: both;
+	float: left;
+	margin-bottom: 0px;
+	margin-right: 0px;
+	width: 16px;
+}
+
+/* SOBI2 Gallery Lightbox Styles */
+/* --------------------------------------- */
+#lightbox {
+	position: absolute;
+	left: 0;
+	width: 100%;
+	z-index: 100;
+	text-align: center;
+	line-height: 0;
+}
+#lightbox a img{ border: none; }
+#outerImageContainer{
+	position: relative;
+	background-color: #fff;
+	width: 250px;
+	height: 250px;
+	margin: 0 auto;
+}
+#imageContainer{
+	padding: 10px;
+}
+#loading{
+	position: absolute;
+	top: 40%;
+	left: 0%;
+	height: 25%;
+	width: 100%;
+	text-align: center;
+	line-height: 0;
+}
+#hoverNav{
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	z-index: 10;
+}
+#imageContainer>#hoverNav{ left: 0;}
+#hoverNav a{ outline: none;}
+#prevLink, #nextLink{
+	width: 49%;
+	height: 100%;
+	background: transparent url(../images/blank.gif) no-repeat; /* Trick IE into showing hover */
+	display: block;
+}
+#prevLink { left: 0; float: left;}
+#nextLink { right: 0; float: right;}
+#imageDataContainer{
+	font: 10px Verdana, Helvetica, sans-serif;
+	background-color: #fff;
+	margin: 0 auto;
+	line-height: 1.4em;
+	overflow: auto;
+	width: 100%
+}
+#imageData{	padding:0 10px; color: #666; }
+#imageData #imageDetails{ width: 70%; float: left; text-align: left; }
+#imageData #caption{ font-weight: bold;	}
+#imageData #numberDisplay{ display: block; clear: left; padding-bottom: 1.0em;	}
+#imageData #bottomNavClose{ width: 66px; float: right;  padding-bottom: 0.7em;	}
+#overlay{
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 90;
+	width: 100%;
+	height: 500px;
+	background-color: #000;
+}
+
+
+/* SOBI2 Gallery Slimbox Styles */
+/* --------------------------------------- */
+#lbOverlay {
+	position: absolute;
+	left: 0;
+	width: 100%;
+	background-color: #000;
+	z-index: 9998;
+	cursor: pointer;
+}
+#lbCenter, #lbBottomContainer {
+	position: absolute;
+	left: 50%;
+	overflow: hidden;
+	z-index: 9999;
+	background-color: #fff;
+}
+.lbLoading {
+	background: #fff url(./images/loading.gif) no-repeat center;
+}
+#lbImage {
+	position: absolute;
+	left: 0;
+	top: 0;
+	border: 10px solid #fff;
+	background-repeat: no-repeat;
+}
+#lbPrevLink, #lbNextLink {
+	display: block;
+	position: absolute;
+	top: 0;
+	width: 50%;
+	outline: none;
+}
+#lbPrevLink {
+	left: 0;
+}
+#lbPrevLink:hover {
+	background: transparent url(./images/prev.gif) no-repeat 0% 15%;
+}
+#lbNextLink {
+	right: 0;
+}
+#lbNextLink:hover {
+	background: transparent url(./images/next.gif) no-repeat 100% 15%;
+}
+#lbBottom {
+	font-family: Verdana, Arial, Geneva, Helvetica, sans-serif;
+	font-size: 10px;
+	color: #666;
+	line-height: 1.4em;
+	text-align: left;
+	border: 10px solid #fff;
+	border-top-style: none;
+}
+#lbCloseLink {
+	display: block;
+	float: right;
+	width: 66px;
+	height: 22px;
+	background: transparent url(./images/close.gif) no-repeat center;
+	margin: 5px 0;
+}
+#lbCaption, #lbNumber {
+	margin-right: 71px;
+}
+#lbCaption {
+	font-weight: bold;
+}

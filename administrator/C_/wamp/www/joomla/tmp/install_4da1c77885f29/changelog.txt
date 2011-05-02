@@ -1,0 +1,62 @@
+﻿RC2.4 (23.12.2009)
+--------------------
+Added: Paid Images Feature. Free Images, Grouped Fees, Progressive discounts
+Added: Details Edit for reordering and modifying Title and Alt Text
+Added: Farsi and Turkish language files
+Changed: Upload button added to language file
+Changed: Alt Text uses Alt Text field and not Title
+Changed: Backend layout adapted to standard SOBI2 plugin layout
+Fixed: Editing from Admin panel no longer requires being logged in as Administrator in Front End
+Note: Only The English Language file has been updated; English texts added to other language files
+
+RC2.3 (24.03.2008)
+--------------------
+Added: class for empty image cells
+Added: New Spanish language file. Thanks to Jose Luis
+Added: Italian language file. Thanks to thuridilla
+Added: Polish language file (frontend only). Thanks to asmo
+Changed: JPG and PNG image quality (PHP5 only) setting used from SOBI2 config.ini (registry editor)
+Fixed: Permission check for Iframe. It is no longer possible to delete images of entries if the user is not the owner of the entry.
+
+RC2.2 (23.12.2007)
+--------------------
+Added: Text if no images are available for an entry (adjustable)
+Added: First thumbnail can be shown in V-Card
+Added: Number of images per row adjustable
+Added: Table sizes calculated automatically (adjustable)
+Added: Show images in a popup instead of Lightbox (best results in Firefox only)
+Added: Dutch language file. Thanks to Robert Zijl
+Changed: Description text enlarged to 100 characters
+Changed: Image Alt-Tag now the same as description text
+Changed: Number of images in V-Card now within div container
+Fixed: Possibility to switch Gallery off in Add Entry Form (IFrame Position = 0)
+
+RC2.1 (3.11.2007)
+--------------------
+Added: Possibility to use existing MooTools with Slimbox instead of Lightbox
+Added: Possibility to switch Gallery off in Add Entry Form (IFrame Position = 0)
+Fixed: Name of Tab in Entry (back-end)
+Fixed: Wrong info Text in German/Spanish/Brazilian language files
+
+RC2.0 (11.9.2007)
+--------------------
+Changed for compatibility with SOBI2 RC2.8.0 (does not longer work with older SOBI2 versions)
+
+RC1.2 (17.5.2007)
+--------------------
+Fixed: session side-effect which existed until PHP 4.2.3 removed
+Changed: Clarify the meaning of Height and Width settings
+Added: brazilian_portuguese language file. Thanks to Joao Carlos Ferraz.
+Added: Spanish language file. Thanks to Jos� Luis.
+
+RC1.1 (23.3.2007)
+--------------------
+Fixed: removed session_register
+
+RC1 (25.02.2007)
+--------------------
+Fixed: Problem with removing images fixed
+
+Beta 4 (25.11.2006)
+--------------------
+Changed: on delete: if file is not deletable, database entry will be deleted anyway

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sobi2plugin>
+	<name>SOBI2 Gallery</name>
+	<nameId>gallery</nameId>
+	<description>Gallery Plugin for SOBI2</description>
+	<author>SOBI2 Developer Team/Greg Hunt</author>
+	<authorEmail>sobi@sigsiu.net</authorEmail>
+	<authorUrl>www.Sigsiu.NET</authorUrl>
+	<creationDate>23 December 2009</creationDate>
+	<copyright>(C) 2006-2009 Sigsiu.NET</copyright>
+	<license>http://www.gnu.org/copyleft/gpl.html GNU/GPL</license>
+	<version>RC 2.56</version>
+	<initFile>gallery_init.php</initFile>
+	<files>
+		<frontend>
+			<file>gallery.class.php</file>
+			<file>gallery_init.php</file>
+			<file>scriptaculous.js</file>
+			<file>lightbox.js</file>
+			<file>slimbox.js</file>
+			<file>sobi_gallery.css</file>
+			<file>changelog.txt</file>
+			<file>effects.js</file>
+			<file>germani.php</file>
+			<file>germanf.php</file>
+			<file>german.php</file>
+			<file>english.php</file>
+			<file>spanish.php</file>
+			<file>brazilian_portuguese.php</file>
+			<file>dutch.php</file>
+			<file>italian.php</file>
+			<file>polish.php</file>
+			<file>farsi.php</file>
+			<file>turkish.php</file>
+		</frontend>
+		<backend>
+			<file>admin.gallery.class.php</file>
+			<file>admin.gallery_init.php</file>
+			<file>install.php</file>
+		</backend>
+	</files>
+	<queries>
+            <query>
+				CREATE TABLE IF NOT EXISTS `#__gallery` (
+				  `imgid` int(11) NOT NULL AUTO_INCREMENT,
+				  `itemid` int(11) NOT NULL default '0',
+				  `filename` varchar(30) default NULL,
+				  `thumb` varchar(30) default NULL,
+				  `alt` varchar(100) default NULL,
+				  `title` varchar(100) default NULL,
+				  `added` datetime default NULL,
+				  `params` varchar(200) default NULL,
+				  `enabled` tinyint(1) default NULL,
+				  `position` int(11) default '0',
+				  PRIMARY KEY  (`imgid`)
+				);
+			</query>
+			<query>INSERT IGNORE INTO `#__sobi2_config` VALUES ('sg_countInListing', '1', 'sobi_gallery', NULL);</query>
+			<query>INSERT IGNORE INTO `#__sobi2_config` VALUES ('sg_allowedImg', '10', 'sobi_gallery', NULL);</query>
+			<query>INSERT IGNORE INTO `#__sobi2_config` VALUES ('sg_imgH', '500', 'sobi_gallery', NULL);</query>
+			<query>INSERT IGNORE INTO `#__sobi2_config` VALUES ('sg_imgW', '500', 'sobi_gallery', NULL);</query>
+			<query>INSERT IGNORE INTO `#__sobi2_config` VALUES ('sg_thmH', '80', 'sobi_gallery', NULL);</query>
+			<query>INSERT IGNORE INTO `#__sobi2_config` VALUES ('sg_thmW', '80', 'sobi_gallery', NULL);</query>
+			<query>INSERT IGNORE INTO `#__sobi2_config` VALUES ('sg_fileSize', '1024000', 'sobi_gallery', NULL);</query>
+			<query>INSERT IGNORE INTO `#__sobi2_config` VALUES ('sg_alwaysResizeThumb', '0', 'sobi_gallery', NULL);</query>
+			<query>INSERT IGNORE INTO `#__sobi2_config` VALUES ('sg_alwaysResizeImages', '0', 'sobi_gallery', NULL);</query>
+			<query>INSERT IGNORE INTO `#__sobi2_config` VALUES ('sg_displayVert', '1', 'sobi_gallery', NULL);</query>
+			<query>INSERT IGNORE INTO `#__sobi2_config` VALUES ('sg_iframeH', '350', 'sobi_gallery', NULL);</query>
+			<query>INSERT IGNORE INTO `#__sobi2_config` VALUES ('sg_fPos', '20', 'sobi_gallery', NULL);</query>
+			<query>INSERT IGNORE INTO `#__sobi2_config` VALUES ('sg_usedScript', '0', 'sobi_gallery', NULL);</query>
+			<query>INSERT IGNORE INTO `#__sobi2_config` VALUES ('sg_imagePopup', '0', 'sobi_gallery', NULL);</query>
+			<query>INSERT IGNORE INTO `#__sobi2_config` VALUES ('sg_numberInRows', '10', 'sobi_gallery', NULL);</query>
+			<query>INSERT IGNORE INTO `#__sobi2_config` VALUES ('sg_adjustSizes', '0', 'sobi_gallery', NULL);</query>
+			<query>INSERT IGNORE INTO `#__sobi2_config` VALUES ('sg_showFirstThumb', '0', 'sobi_gallery', NULL);</query>
+			<query>INSERT IGNORE INTO `#__sobi2_config` VALUES ('sg_showNoImage', '0', 'sobi_gallery', NULL);</query>
+			<query>INSERT IGNORE INTO `#__sobi2_config` VALUES ('sg_imagefee', '0', 'sobi_gallery', NULL);</query>
+			<query>INSERT IGNORE INTO `#__sobi2_config` VALUES ('sg_perimages', '1', 'sobi_gallery', NULL);</query>
+			<query>INSERT IGNORE INTO `#__sobi2_config` VALUES ('sg_feeDiscount', '0', 'sobi_gallery', NULL);</query>
+			<query>INSERT IGNORE INTO `#__sobi2_config` VALUES ('sg_maxDiscount', '0', 'sobi_gallery', NULL);</query>
+			<query>INSERT IGNORE INTO `#__sobi2_config` VALUES ('sg_freeImages', '0', 'sobi_gallery', NULL);</query>
+			<query>INSERT IGNORE INTO `#__sobi2_config` VALUES ('sg_showNum', '0', 'sobi_gallery', NULL);</query>
+			
+	</queries>
+</sobi2plugin>
