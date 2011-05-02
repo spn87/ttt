@@ -121,11 +121,7 @@ if (
 	<?php echo $this->article->toc; ?>
 <?php endif; ?>
 <?php echo $this->article->text; ?>
-<div style="margin-top:200px;">
-<span style="background:#F00;color:#FFF;font-size:16px">
-	<a href="http://www.abktours.com/index.php?option=com_booking&view=booking&Itemid=61">Booking</a>
-</span>
-</div>
+
 </div>
 
 
@@ -141,8 +137,7 @@ if (
 
 <div style="margin-top:-20px;">
 	<a href="http://www.abktours.com/index.php?option=com_booking&view=booking&Itemid=61&id=<?php echo $_GET['id']?>&lang=<?php echo $_GET['lang']?>">
-			<img src="images/stories/Booking.gif" />
-           
+			<img src="images/stories/Booking.gif" /> 
     </a>
 </div>
 
