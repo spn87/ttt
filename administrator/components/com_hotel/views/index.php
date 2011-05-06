@@ -25,7 +25,7 @@ class HotelViewHotel extends JView
 			$hotelGroupOpt .= "<option value=''>".$g->name."</option>";
 		}
 		?>
-		<form class="adminForm">
+		<form class="adminForm" action="index.php?option=com_hotel&task=save" method="post">
 			<table class="adminlist">
 				<tr>
 					<td>Province</td>
@@ -90,9 +90,17 @@ class HotelViewHotel extends JView
 					<textarea rows="5" cols="140" name="description"></textarea>
 					</td>
 				</tr>
-				
+				<tr>
+					<td colspan="2"><input type="submit" value="Save" /> <input type="button" value="Cancel" onclick="btncancel();" /></td>
+				</tr>
 			</table>
 		</form>
+		<script>
+		function btncancel()
+		{
+			window.location = "index.php?option=com_hotel";
+		}
+		</script>
 		<?php
 	}
 }
