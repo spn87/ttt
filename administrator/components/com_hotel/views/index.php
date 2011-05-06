@@ -12,9 +12,39 @@ class HotelViewHotel extends JView
         parent::display($tpl);
 	}
 	
-	public function index()
+	public function index($hotels)
 	{
+		?>			
+		<table class="adminlist">
+			<thead>
+				<tr>
+					<th>#</th>
+					<th>Hotel name</th>
+					<th>Province</th>
+					<th>Star</th>
+					<th>Edit</th>
+					<th>Delete</th>
+				</tr>
+			</thead>
+		<?php
+		$i=0;
+		foreach ($hotels as $hotel):
+		++$i;
+		?>
+		<tr class="row<?php echo ($i%2==0 ? "0":"1" )?>">
+			<td><?php echo $i;?></td>
+			<td><?php echo $hotel->name?></td>
+			<td><?php echo $hotel->gname;?></td>
+			<td><?php echo $hotel->star;?></td>
+			<td><a href="index.php?option=com_hotel&task=add&id=<?php echo $hotel->id?>">Edit</a></td>
+			<td><a href="">Delete</a></td>
+		</tr>
 		
+		<?php
+		endforeach;
+		?>
+		</table>
+		<?php
 	}
 
 	public function add($hotelGroup,$data)
@@ -22,20 +52,20 @@ class HotelViewHotel extends JView
 		$hotelGroupOpt = "";
 		foreach ($hotelGroup as $g)
 		{
-			$hotelGroupOpt .= "<option value=''>".$g->name."</option>";
+			$hotelGroupOpt .= "<option value='".$g->id."' ".($g->id == $data["g_id"] ? "selected='selected'":"").">".$g->name."</option>";
 		}
 		?>
-		<form class="adminForm" action="index.php?option=com_hotel&task=save" method="post">
+		<form class="adminForm hotel" action="index.php?option=com_hotel&task=save" method="post">
 			<table class="adminlist">
 				<tr>
 					<td>Province</td>
 					<td>
-						<select><?php echo $hotelGroupOpt;?></select>
+						<select name="g_id"><?php echo $hotelGroupOpt;?></select>
 					</td>
 				</tr>
 				<tr>
 					<td>Hotel Name</td>
-					<td><input type="text" value=<?php echo $data["name"];?> name="name" /></td>
+					<td><input type="text" value="<?php echo $data["name"];?>" name="name" /></td>
 				</tr>
 				<tr>
 					<td>Minimum rate</td>
@@ -87,14 +117,27 @@ class HotelViewHotel extends JView
 				</tr>
 				<tr>
 					<td colspan="2">Description<br />
-					<textarea rows="5" cols="140" name="description"></textarea>
+					<textarea rows="5" cols="140" name="description"><?php echo $data["description"]?></textarea>
 					</td>
 				</tr>
 				<tr>
 					<td colspan="2"><input type="submit" value="Save" /> <input type="button" value="Cancel" onclick="btncancel();" /></td>
 				</tr>
 			</table>
+			<?php if (isset($_GET['id'])):?>
+			<input type="hidden" name="id" value="<?php echo $_GET['id'];?>"/>
+			<?php endif;?>
 		</form>
+		<style>
+		form.hotel table
+		{
+			width:100%;
+		}
+		form.hotel td:first-child
+		{
+			width: 20% !important;
+		}
+		</style>
 		<script>
 		function btncancel()
 		{
