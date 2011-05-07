@@ -21,9 +21,9 @@ class HotelController extends JController
 			<thead>
 				<tr>
 					<th>No</th>
-					<th>Hotel name</th>
+					<th><?php echo JText::_('ABK_HOTEL_NAME')?></th>
 					<th>Star</th>
-					<th>Rate</th>
+					<th><?php echo JText::_('ABK_RATE')?></th>
 					<th></th>
 				</tr>
 			</thead>
@@ -39,8 +39,10 @@ class HotelController extends JController
 						<img src="images/star.png" />
 						<?php endfor;?>
 					</td>
-					<td>Between <?php echo $row->min_rate?> and <?php echo $row->max_rate;?></td>
-					<td><a href="index.php?option=com_hotel&hid=<?php echo $row->id?>&Itemid=13&task=hotel">Detail</a></td>
+					<td>
+					<?php echo JText::sprintf('ABK_BETWEEN_RATE',$row->min_rate,$row->max_rate)?>
+					</td>
+					<td><a href="index.php?option=com_hotel&hid=<?php echo $row->id?>&Itemid=13&task=hotel"><?php echo JText::_('ABK_DETAIL')?></a></td>
 				</tr>
 			<?php endforeach;?>
 			</tbody>
