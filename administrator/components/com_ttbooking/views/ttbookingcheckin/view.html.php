@@ -4,13 +4,23 @@ defined( '_JEXEC' ) or die( 'Restricted access' );
 
 jimport( 'joomla.application.component.view' );
 
-class ttbookingsViewttbookings extends JView
+class ttbookingsViewttbookingcheckin extends JView
 {
 	function display($tpl = null)
 	{
-		JToolBarHelper::title(   JText::_( 'Booking checkin' ), 'generic.png' );
+		$booking=& $this->get('Data');
+		$isNew= ($booking->id < 1);
 
-		$this->assignRef('items',"check int");
+		$text = $isNew ? JText::_( 'New' ) : JText::_( 'Edit' );
+		JToolBarHelper::title(   JText::_( 'Check in' ).': <small><small>[ ' . $text.' ]</small></small>' );
+		JToolBarHelper::save();
+		if ($isNew)  {
+			JToolBarHelper::cancel();
+		} else {
+			JToolBarHelper::cancel( 'cancel', 'Close' );
+		}
+
+		$this->assignRef('booking',	$booking);
 
 		parent::display($tpl);
 	}

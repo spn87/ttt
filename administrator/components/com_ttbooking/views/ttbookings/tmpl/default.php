@@ -1,5 +1,6 @@
 <?php defined('_JEXEC') or die('Restricted access'); ?>
 <form action="index.php" method="post" name="adminForm">
+date chechk in &nbsp;:<input type="text" value="" name="datecheckin" id="datecheckin"/><br /><br />
 <div id="editcell">
 	<table class="adminlist">
 	<thead>

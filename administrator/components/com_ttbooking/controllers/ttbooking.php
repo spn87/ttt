@@ -7,7 +7,6 @@ class ttbookingsControllerttbooking extends ttbookingsController
 	function __construct()
 	{
 		parent::__construct();
-
 		// Register Extra tasks
 		$this->registerTask( 'add'  , 	'edit' );
 	}

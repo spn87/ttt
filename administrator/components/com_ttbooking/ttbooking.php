@@ -11,27 +11,27 @@ $controllerName = JRequest::getWord('controller');
 switch ($controllerName) 
 {
 	case"ttbooking":
-		JSubMenuHelper::addEntry(JText::_('Booking'), 'index.php?option=com_ttbooking&controller=ttbooking&task=view', true );
-		JSubMenuHelper::addEntry(JText::_('Check In'), 'index.php?option=com_ttbooking&controller=ttbookingcheckin&task=view');
-		JSubMenuHelper::addEntry(JText::_('Check Out'), 'index.php?option=com_ttbooking&controller=ttbookingcheckout&task=view');
-		break;
+		JSubMenuHelper::addEntry(JText::_('Booking'), 'index.php?option=com_ttbooking&view=ttbookings', true );
+		JSubMenuHelper::addEntry(JText::_('CheckIn'), 'index.php?option=com_ttbooking&view=ttbookingcheckins');
+		JSubMenuHelper::addEntry(JText::_('CheckOut'), 'index.php?option=com_ttbooking&view=ttbookingcheckouts');
+	break;
 		
 	case"ttbookingcheckin":
-		JSubMenuHelper::addEntry(JText::_('Booking'), 'index.php?option=com_ttbooking&controller=ttbooking&task=view' );
-		JSubMenuHelper::addEntry(JText::_('Check In'), 'index.php?option=com_ttbooking&controller=ttbookingcheckin&task=view',true);
-		JSubMenuHelper::addEntry(JText::_('Check Out'), 'index.php?option=com_ttbooking&controller=ttbookingcheckout&task=view');
+		JSubMenuHelper::addEntry(JText::_('Booking'), 'index.php?option=com_ttbooking&view=ttbookings' );
+		JSubMenuHelper::addEntry(JText::_('CheckIn'), 'index.php?option=com_ttbooking&view=ttbookingcheckins',true);
+		JSubMenuHelper::addEntry(JText::_('CheckOut'), 'index.php?option=com_ttbooking&view=ttbookingcheckouts');
 	break;
 	
 	case"ttbookingcheckout":
-		JSubMenuHelper::addEntry(JText::_('Booking'), 'index.php?option=com_ttbooking&controller=ttbooking&task=view' );
-		JSubMenuHelper::addEntry(JText::_('Check In'), 'index.php?option=com_ttbooking&controller=ttbookingcheckin&task=view');
-		JSubMenuHelper::addEntry(JText::_('Check Out'), 'index.php?option=com_ttbooking&controller=ttbookingcheckout&task=view',true);
+		JSubMenuHelper::addEntry(JText::_('Booking'), 'index.php?option=com_ttbooking&view=ttbookings' );
+		JSubMenuHelper::addEntry(JText::_('CheckIn'), 'index.php?option=com_ttbooking&view=ttbookingcheckins');
+		JSubMenuHelper::addEntry(JText::_('CheckOut'), 'index.php?option=com_ttbooking&view=ttbookingcheckouts',true);
 	break;
 	
 	default :
-		JSubMenuHelper::addEntry(JText::_('Booking'), 'index.php?option=com_ttbooking&controller=ttbooking&task=view', true );
-		JSubMenuHelper::addEntry(JText::_('Check In'), 'index.php?option=com_ttbooking&controller=ttbookingcheckin&task=view');
-		JSubMenuHelper::addEntry(JText::_('Check Out'), 'index.php?option=com_ttbooking&controller=ttbookingcheckout&task=view');
+		JSubMenuHelper::addEntry(JText::_('Booking'), 'index.php?option=com_ttbooking&view=ttbookings', true );
+		JSubMenuHelper::addEntry(JText::_('CheckIn'), 'index.php?option=com_ttbooking&view=ttbookingcheckins');
+		JSubMenuHelper::addEntry(JText::_('CheckOut'), 'index.php?option=com_ttbooking&view=ttbookingcheckouts');
 }
 
 
