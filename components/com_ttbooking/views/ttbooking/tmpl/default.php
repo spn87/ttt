@@ -86,8 +86,7 @@
 	</div>
     <br /><br />
   
-    <div style="background:#093;color#FFF;font-size:14px;color:#FFF;width:300px;">
-	<?php echo JText::_( 'Tour Information' ); ?></div><br />
+    <div style="background:#093;color#FFF;font-size:14px;color:#FFF;width:300px;"><?php echo JText::_( 'Tour Information' ); ?></div><br />
 		<div style="background:#FF9"><br />
 		<table class="admintable">
         <!--Tours code-->

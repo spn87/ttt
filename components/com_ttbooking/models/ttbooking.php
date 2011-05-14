@@ -17,4 +17,42 @@ class ttbookingModelttbooking extends JModel
 
 		return $Data_ttbooking;
 	}
+	
+
+	function store()
+	{	
+		$row =& $this->getTable();
+
+		$data = JRequest::get( 'post' );
+		
+		$checkArr = array("fullname");
+		
+		foreach ($checkArr as $c)
+		{
+			if (!isset($data[$c]) || $data[$c] == "")
+			{
+				echo "Error";
+				return false;
+			}
+		}
+		
+		// Bind the form fields to the ttbooking table
+		if (!$row->bind($data)) {
+			$this->setError($this->_db->getErrorMsg());
+			return false;
+		}
+
+		// Make sure the Booking record is valid
+		if (!$row->check()) {
+			$this->setError($this->_db->getErrorMsg());
+			return false;
+		}
+
+		// Store the web link table to the database
+		if (!$row->store()) {
+			$this->setError( $row->getErrorMsg() );
+			return false;
+		}
+		return true;
+	}
 }

@@ -3,15 +3,11 @@
 defined('_JEXEC') or die('Restricted access');
 
 require_once (JPATH_COMPONENT.DS.'controller.php');
+$task=JRequest::getCmd('task');
 
-if($controller = JRequest::getVar('controller')) {
-	require_once (JPATH_COMPONENT.DS.'controllers'.DS.$controller.'.php');
-}
 
-$classname	= 'ttbookingController'.$controller;
-$controller = new $classname();
-
-$controller->execute( JRequest::getVar('task'));
+$controller=new ttbookingController();
+$controller->execute($task);
 $controller->redirect();
 
 ?>
