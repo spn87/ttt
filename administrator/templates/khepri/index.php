@@ -17,7 +17,18 @@ defined( '_JEXEC' ) or die( 'Restricted access' );
 <head>
 <jdoc:include type="head" />
 
+
+	<link rel="stylesheet" href="templates/<?php echo  $this->template ?>/datetimepicker/jquery00.css">
+	<script src="templates/<?php echo  $this->template ?>/datetimepicker/jquery-1.js"></script>
+	<script src="templates/<?php echo  $this->template ?>/datetimepicker/jquery00.js"></script>
+	<script src="templates/<?php echo  $this->template ?>/datetimepicker/jquery01.js"></script>
+	<script src="templates/<?php echo  $this->template ?>/datetimepicker/jquery02.js"></script>
+	<link rel="templates/<?php echo  $this->template ?>/stylesheet" href="datetimepicker/demos000.css">
+    
+	
+    
 <link rel="stylesheet" href="templates/system/css/system.css" type="text/css" />
+
 <link href="templates/<?php echo  $this->template ?>/css/template.css" rel="stylesheet" type="text/css" />
 
 <?php if($this->direction == 'rtl') : ?>
@@ -41,7 +52,36 @@ defined( '_JEXEC' ) or die( 'Restricted access' );
 <?php if(JModuleHelper::isEnabled('menu')) : ?>
 	<script type="text/javascript" src="templates/<?php echo  $this->template ?>/js/menu.js"></script>
 	<script type="text/javascript" src="templates/<?php echo  $this->template ?>/js/index.js"></script>
+    
 <?php endif; ?>
+
+<script>
+	$(function() {
+		$( "#datecheck" ).datepicker({
+			changeMonth: true,
+			changeYear: true
+		});
+	});
+	</script>
+    
+    <script>
+	$(function() {
+		$( "#dob" ).datepicker({
+			changeMonth: true,
+			changeYear: true
+		});
+	});
+	</script>
+    
+      <script>
+	$(function() {
+		$( "#departuredate" ).datepicker({
+			changeMonth: true,
+			changeYear: true
+		});
+	});
+	</script>
+
 
 </head>
 <body id="minwidth-body">
@@ -114,7 +154,7 @@ defined( '_JEXEC' ) or die( 'Restricted access' );
 	<div id="border-bottom"><div><div></div></div></div>
 	<div id="footer">
 		<p class="copyright">
-			<a href="http://www.joomla.org" target="_blank">Joomla!</a>
+			
 			<?php echo  JText::_('ISFREESOFTWARE') ?>
 		</p>
 	</div>

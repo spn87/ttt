@@ -8,7 +8,8 @@ class ttbookingsViewttbooking extends JView
 {
 	function display($tpl = null)
 	{
-		$booking		=& $this->get('Data');
+		
+$booking		=& $this->get('Data');
 		$isNew		= ($booking->id < 1);
 
 		$text = $isNew ? JText::_( 'New' ) : JText::_( 'Edit' );

@@ -6,30 +6,29 @@ defined( '_JEXEC' ) or die( 'Restricted access' );
 
 require_once( JPATH_COMPONENT.DS.'controller.php' );
 
-$controllerName = JRequest::getWord('controller');
-
+$controllerName = JRequest::getVar('view');
 switch ($controllerName) 
 {
-	case"ttbooking":
-		JSubMenuHelper::addEntry(JText::_('Booking'), 'index.php?option=com_ttbooking&view=ttbookings', true );
-		JSubMenuHelper::addEntry(JText::_('CheckIn'), 'index.php?option=com_ttbooking&view=ttbookingcheckins');
-		JSubMenuHelper::addEntry(JText::_('CheckOut'), 'index.php?option=com_ttbooking&view=ttbookingcheckouts');
+	case"ttbookings":
+		JSubMenuHelper::addEntry("<font color='red' style='background-color:#FCC'>".JText::_('Booking')."</font>", 'index.php?option=com_ttbooking&view=ttbookings', true );
+		JSubMenuHelper::addEntry(JText::_('Checkin'), 'index.php?option=com_ttbooking&view=ttbookingcheckins');
+		JSubMenuHelper::addEntry(JText::_('Checkout'), 'index.php?option=com_ttbooking&view=ttbookingcheckouts');
 	break;
 		
-	case"ttbookingcheckin":
-		JSubMenuHelper::addEntry(JText::_('Booking'), 'index.php?option=com_ttbooking&view=ttbookings' );
-		JSubMenuHelper::addEntry(JText::_('CheckIn'), 'index.php?option=com_ttbooking&view=ttbookingcheckins',true);
+	case"ttbookingcheckins":
+		JSubMenuHelper::addEntry(JText::_('Booking'), 'index.php?option=com_ttbooking&view=ttbookings');
+		JSubMenuHelper::addEntry("<font color='red' style='background-color:#FCC'>".JText::_('Checkin')."</font>", 'index.php?option=com_ttbooking&view=ttbookingcheckins',true);
 		JSubMenuHelper::addEntry(JText::_('CheckOut'), 'index.php?option=com_ttbooking&view=ttbookingcheckouts');
 	break;
 	
-	case"ttbookingcheckout":
-		JSubMenuHelper::addEntry(JText::_('Booking'), 'index.php?option=com_ttbooking&view=ttbookings' );
+	case"ttbookingcheckouts":
+		JSubMenuHelper::addEntry(JText::_('Booking'), 'index.php?option=com_ttbooking&view=ttbookings');
 		JSubMenuHelper::addEntry(JText::_('CheckIn'), 'index.php?option=com_ttbooking&view=ttbookingcheckins');
-		JSubMenuHelper::addEntry(JText::_('CheckOut'), 'index.php?option=com_ttbooking&view=ttbookingcheckouts',true);
+		JSubMenuHelper::addEntry("<font color='red' style='background-color:#FCC'>".JText::_('Checkout')."</font>", 'index.php?option=com_ttbooking&view=ttbookingcheckouts',true);
 	break;
 	
 	default :
-		JSubMenuHelper::addEntry(JText::_('Booking'), 'index.php?option=com_ttbooking&view=ttbookings', true );
+		JSubMenuHelper::addEntry("<font color='red' style='background-color:#FCC'>".JText::_('Booking')."</font>"	, 'index.php?option=com_ttbooking&view=ttbookings', true );
 		JSubMenuHelper::addEntry(JText::_('CheckIn'), 'index.php?option=com_ttbooking&view=ttbookingcheckins');
 		JSubMenuHelper::addEntry(JText::_('CheckOut'), 'index.php?option=com_ttbooking&view=ttbookingcheckouts');
 }
@@ -58,12 +57,8 @@ $classname = 'ttbookingsController'.$controllerName;
 $controllerName = new $classname();
 
 // Perform the Request task
-if (!(JRequest::getVar('task'))) {
-    $task = 'view';
-}else{
-    $task = JRequest::getVar('task');
-};
-
+if (!(JRequest::getVar('task'))) {$task = 'view';}
+else{$task = JRequest::getVar('task');}
 $controllerName->execute( $task );
 
 // Redirect if set by the controller

@@ -67,6 +67,7 @@ class ttbookingsModelttbooking extends JModel
 
 	function delete()
 	{
+
 		$cids = JRequest::getVar( 'cid', array(0), 'post', 'array' );
 
 		$row =& $this->getTable();
@@ -81,5 +82,7 @@ class ttbookingsModelttbooking extends JModel
 		}
 		return true;
 	}
+	
+	
 
 }

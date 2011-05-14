@@ -24,6 +24,13 @@ include_once (dirname(__FILE__).DS.'/ja_vars.php');
 <jdoc:include type="head" />
 <?php JHTML::_('behavior.mootools'); ?>
 
+	<link rel="stylesheet" href="templates/<?php echo  $this->template ?>/datetimepicker/jquery00.css">
+	<script src="<?php echo $tmpTools->templateurl(); ?>/datetimepicker/jquery-1.js"></script>
+	<script src="<?php echo $tmpTools->templateurl(); ?>/datetimepicker/jquery00.js"></script>
+	<script src="<?php echo $tmpTools->templateurl(); ?>/datetimepicker/jquery01.js"></script>
+	<script src="<?php echo $tmpTools->templateurl(); ?>/datetimepicker/jquery02.js"></script>
+	<link rel="<?php echo $tmpTools->templateurl(); ?>/stylesheet" href="datetimepicker/demos000.css">
+
 <link rel="stylesheet" href="<?php echo $tmpTools->baseurl(); ?>templates/system/css/system.css" type="text/css" />
 <link rel="stylesheet" href="<?php echo $tmpTools->baseurl(); ?>templates/system/css/general.css" type="text/css" />
 <link rel="stylesheet" href="<?php echo $tmpTools->templateurl(); ?>/css/template.css" type="text/css" />
@@ -94,6 +101,28 @@ function makeTransBG() {
 #ja-header,#ja-mainnav,#ja-container,#ja-botsl,#ja-footer {width: <?php echo $tmpWidth; ?>;margin: 0 auto;}
 #ja-wrapper {min-width: <?php echo $tmpWrapMin; ?>;}
 </style>
+
+
+   <script>
+	$(function() {
+		$( "#dob" ).datepicker({
+			changeMonth: true,
+			changeYear: true
+		});
+	});
+	</script>
+    
+      <script>
+	$(function() {
+		$( "#departuredate" ).datepicker({
+			changeMonth: true,
+			changeYear: true
+		});
+	});
+	</script>
+
+
+
 </head>
 
 <body id="bd" class="fs<?php echo $tmpTools->getParam(JA_TOOL_FONT);?> <?php echo $tmpTools->browser();?>" >

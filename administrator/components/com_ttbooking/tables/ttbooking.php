@@ -23,6 +23,7 @@ class Tablettbooking extends JTable
   var $np_adult=null;
   var $np_child=null;
   var $detail=null;
+
   
 	function Tablettbooking(& $db) 
 	{

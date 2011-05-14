@@ -1,6 +1,6 @@
 <?php defined('_JEXEC') or die('Restricted access'); ?>
-<form action="index.php" method="post" name="adminForm">
-date chechk in &nbsp;:<input type="text" value="" name="datecheckin" id="datecheckin"/><br /><br />
+<form action="index.php?option=com_ttbooking" method="post" name="adminForm">
+<?php echo JText::_('date checkin');?> &nbsp;:<input type="text" value="" name="datecheck" id="datecheck"/><br /><br />
 <div id="editcell">
 	<table class="adminlist">
 	<thead>
@@ -42,7 +42,7 @@ date chechk in &nbsp;:<input type="text" value="" name="datecheckin" id="dateche
 	{
 		$row = &$this->items[$i];
 		$checked 	= JHTML::_('grid.id',   $i, $row->id );
-		$link 		= JRoute::_( 'index.php?option=com_ttbooking&controller=ttbooking&task=edit&cid[]='. $row->id );
+		$link 		= JRoute::_( 'index.php?option=com_ttbooking&controller=ttbooking&task=edit&book=Booking&cid[]='. $row->id );
 		?>
 		<tr class="<?php echo "row$k"; ?>">
 			<td>

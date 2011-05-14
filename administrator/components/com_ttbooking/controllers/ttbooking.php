@@ -10,14 +10,39 @@ class ttbookingsControllerttbooking extends ttbookingsController
 		// Register Extra tasks
 		$this->registerTask( 'add'  , 	'edit' );
 	}
-
-
+	
+	function checkin()
+	{
+		$dateCheck = JRequest::getVar('datecheck');
+		if($dateCheck=="")
+		{
+			$this->setRedirect("index.php?option=com_ttbooking","<font color='red'>".JText::_('cannot checkin, must select date!')."</font>");
+		}
+		else
+		{
+			$db =& JFactory::getDBO();
+			
+			$cids = JRequest::getVar( 'cid', array(0), 'post', 'array' );
+			if (count( $cids )) {
+				foreach($cids as $cid) 
+				{
+					$query = "UPDATE jos_ttbooking SET act=1,dateaction='$dateCheck' WHERE id=$cid"; 
+					$db->setQuery($query);
+					$db->query();
+				}
+			}
+			$this->setRedirect("index.php?option=com_ttbooking",JText::_('Ready checki!'));
+		}
+	}
+function show()
+	{
+		$this->report();		
+	}
 	function edit()
 	{
 		JRequest::setVar( 'view', 'ttbooking' );
 		JRequest::setVar( 'layout', 'form'  );
 		JRequest::setVar('hidemainmenu', 1);
-
 		parent::display();
 	}
 
@@ -53,5 +78,9 @@ class ttbookingsControllerttbooking extends ttbookingsController
 	{
 		$msg = JText::_( 'Operation Cancelled' );
 		$this->setRedirect( 'index.php?option=com_ttbooking', $msg );
+	}
+	function close()
+	{
+		$this->setRedirect( 'index.php');
 	}
 }

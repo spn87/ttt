@@ -9,10 +9,12 @@ class ttbookingsViewttbookings extends JView
 	function display($tpl = null)
 	{
 		JToolBarHelper::title(   JText::_( 'Booking' ), 'generic.png' );
-		JToolBarHelper::trash();
+		JToolBarHelper::custom( 'checkin', 'forward.png', 'forward.png', 'Checkin',false,false);
 		JToolBarHelper::deleteList();
 		JToolBarHelper::editListX();
 		JToolBarHelper::addNewX();
+		JToolBarHelper::custom('show','preview.png','preview.png','View',false,false);
+		JToolBarHelper::custom('close','cancel.png' ,'cancel.png' ,'Close',false,false);
 		
 
 		// Get data from the model

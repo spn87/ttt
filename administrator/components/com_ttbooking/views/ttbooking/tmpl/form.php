@@ -1,21 +1,6 @@
 
 
 <?php defined('_JEXEC') or die('Restricted access'); ?>
-
-<style>
-	tr{border: dotted #666 2px;}
-</style>
-
-<script type="text/javascript">
-	window.onload = function(){
-		new JsDatePick({
-			useMode:2,
-			target:"dob",
-			dateFormat:"%d-%M-%Y"
-		});
-	};
-</script>
-
 <form action="index.php" method="post" name="adminForm" id="adminForm">
 <div class="col100">
 	<fieldset class="adminform">
@@ -26,7 +11,7 @@
 		<tr>
 			<td width="100" align="right" class="key">
 				<label for="fullname">
-					<?php echo JText::_( 'Fullname' ); ?>:
+					<?php echo JText::_( 'Full name' ); ?>:
 				</label>
 			</td>
 			<td>
@@ -144,12 +129,9 @@
 				</label>
 			</td>
 			<td>
-				Single: &nbsp; <input class="text_area" type="text" name="rp_single" id="rp_single" size="12" maxlength="250" value="<?php echo $this->booking->rp_single;?>" />
-		
-        
-				Double: &nbsp;<input class="text_area" type="text" name="rp_double" id="rp_double" size="12" maxlength="250" value="<?php echo $this->booking->rp_double;?>" />
-		
-				Twin: &nbsp;<input class="text_area" type="text" name="rp_twin" id="rp_twin" size="12" maxlength="250" value="<?php echo $this->booking->rp_twin;?>" />
+				<?php echo JText::_( 'Single' )?>: &nbsp; <input class="text_area" type="text" name="rp_single" id="rp_single" size="12" maxlength="250" value="<?php echo $this->booking->rp_single;?>" />
+				<?php echo JText::_( 'Double' )?>: &nbsp;<input class="text_area" type="text" name="rp_double" id="rp_double" size="12" maxlength="250" value="<?php echo $this->booking->rp_double;?>" />
+				<?php echo JText::_( 'Twin' )?>: &nbsp;<input class="text_area" type="text" name="rp_twin" id="rp_twin" size="12" maxlength="250" value="<?php echo $this->booking->rp_twin;?>" />
 			</td>
 		</tr>
         
@@ -181,7 +163,7 @@
         <tr>
 			<td width="100" align="right" class="key">
 				<label for="detail">
-					<?php echo JText::_( 'Twin' ); ?>:
+					<?php echo JText::_( 'Detail' ); ?>:
 				</label>
 			</td>
 			<td>

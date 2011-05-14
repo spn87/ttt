@@ -8,7 +8,7 @@ class ttbookingsModelttbookings extends JModel
 	var $_data;
 	function _buildQuery()
 	{
-		$query = ' SELECT * FROM `jos_ttbooking` ';
+		$query = ' SELECT * FROM `jos_ttbooking` where act=2';
 		return $query;
 	}
 

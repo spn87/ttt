@@ -1,6 +1,8 @@
 <?php
 
 defined( '_JEXEC' ) or die( 'Restricted access' );
+
+
 class ttbookingsControllerttbookingcheckin extends ttbookingsController
 {
 
@@ -9,27 +11,63 @@ class ttbookingsControllerttbookingcheckin extends ttbookingsController
 		parent::__construct();
 		// Register Extra tasks
 		$this->registerTask( 'add'  , 	'edit' );
-		$this->remove();
 	}
-
-	function show()
+	function setId($id)
 	{
-		echo "<h1>hellllllllllllllllll</h1>";
+		$this->_id		= $id;
+		$this->_data	= null;
 	}
 	
-	function remove()
+	function checkout()
 	{
-		/*$model = $this->getModel('ttbookingcheckins');
-		if(!$model->delete()) {
-			$msg = JText::_( 'Error: One or More Booking Could not be Deleted' );
-		} else {
-			$msg = JText::_( 'Booking (s) Deleted' );
+		$dateCheck = JRequest::getVar('datecheck');
+		if($dateCheck=="")
+		{
+			$this->setRedirect("index.php?option=com_ttbooking&view=ttbookingcheckins",
+			"<font color='red'>".JText::_('cannot checkout,must select date!')."</font>");
 		}
-
-		$this->setRedirect( 'index.php?option=com_ttbooking', $msg );*/
+		else
+		{
+			$db =& JFactory::getDBO();
+			
+			$cids = JRequest::getVar( 'cid', array(0), 'post', 'array' );
+			if (count( $cids )) {
+				foreach($cids as $cid) 
+				{
+					$query = "UPDATE jos_ttbooking SET act=0,dateaction='$dateCheck' WHERE id=$cid"; 
+					$db->setQuery($query);
+					$db->query();
+				}
+			}
+			$this->setRedirect("index.php?option=com_ttbooking&view=ttbookingcheckins","Ready checkout!");
+		}
+	}
+	function show()
+	{
+		$this->report();		
+	}
+	function delete()
+	{
 		
-		echo"<script>alert('hellllo');</script>";
-		parent::display();
+		$cids = JRequest::getVar( 'cid', array(0), 'post', 'array' );
+		if(count($cids)==0)
+		{
+			$this->setRedirect("index.php?option=com_ttbooking&view=ttbookingcheckins",
+			"<font color='red'>cannot delete,must check data!</font>");
+		}
+		else
+		{
+			$db =& JFactory::getDBO();
+			if (count( $cids )) {
+				foreach($cids as $cid) 
+				{
+					$query = "DELETE from jos_ttbooking  WHERE id=$cid"; 
+					$db->setQuery($query);
+					$db->query();
+				}
+			}
+			$this->setRedirect("index.php?option=com_ttbooking&view=ttbookingcheckins",JText::_('Delete ').count($cids).JText::_('rows'));
+		}
 	}
 
 	function cancel()
@@ -37,6 +75,5 @@ class ttbookingsControllerttbookingcheckin extends ttbookingsController
 		$msg = JText::_( 'Operation Cancelled' );
 		$this->setRedirect( 'index.php?option=com_ttbooking&controller=ttbookingcheckins&task=view', $msg );
 	}
-	
-
+	function close(){$this->setRedirect('index.php');}
 }
