@@ -3,34 +3,23 @@
 <?php defined('_JEXEC') or die('Restricted access'); ?>
 
 <style>
-	tr{border: dotted #666 2px;}
+	.text_area{border:1px #096 solid;}
 </style>
 
-<script type="text/javascript">
-	window.onload = function(){
-		new JsDatePick({
-			useMode:2,
-			target:"dob",
-			dateFormat:"%d-%M-%Y"
-		});
-	};
-</script>
-
-<form action="index.php" method="post" name="adminForm" id="adminForm">
+<form action="index.php?option=com_ttbooking&task=save" method="post" onsubmit="return chk()" id="bform">
 <div class="col100">
-	<fieldset class="adminform">
-		<legend><?php echo JText::_( 'Personal Information' ); ?></legend>
-
+		<div style="background:#093;color:#FFF;font-size:14px;width:300px;"><?php echo JText::_( 'Personal Information' ); ?></div><br />
+		<div style="background:#FF9"><br />
 		<table class="admintable">
         <!--Full Name-->
 		<tr>
 			<td width="100" align="right" class="key">
 				<label for="fullname">
-					<?php echo JText::_( 'Fullname' ); ?>:
+					<?php echo JText::_( 'Full Name' ); ?>:
 				</label>
 			</td>
 			<td>
-				<input class="text_area" type="text" name="fullname" id="fullname" size="32" maxlength="250" value="" />
+				<input class="text_area req" type="text" name="fullname" id="fullname" size="32" maxlength="250" value="" />
 			</td>
 		</tr>
         
@@ -52,7 +41,7 @@
 				</label>
 			</td>
 			<td>
-				<input class="text_area" type="text" name="gender" id="gender" size="12" maxlength="250" value="" />
+				<input class="text_area req" type="text" name="gender" id="gender" size="12" maxlength="250" value="" />
 			</td>
 		</tr>
         
@@ -64,7 +53,7 @@
 				</label>
 			</td>
 			<td>
-				<input class="text_area" type="text" name="dob" id="dob" size="20" maxlength="250" value="" />
+				<input class="text_area req" type="text" name="dob" id="dob" size="20" maxlength="250" value="" />
 			</td>
 		</tr>
         
@@ -76,7 +65,7 @@
 				</label>
 			</td>
 			<td>
-				<input class="text_area" type="text" name="countries" id="countries" size="32" maxlength="250" value="" />
+				<input class="text_area req" type="text" name="countries" id="countries" size="32" maxlength="250" value="" />
 			</td>
 		</tr>
         
@@ -93,12 +82,13 @@
 		</tr>
         
         
-	</table>
-	</fieldset>
-    
-    <fieldset class="adminform">
-    <legend><?php echo JText::_( 'Tour Information' ); ?></legend>
-
+	</table><br />
+	</div>
+    <br /><br />
+  
+    <div style="background:#093;color#FFF;font-size:14px;color:#FFF;width:300px;">
+	<?php echo JText::_( 'Tour Information' ); ?></div><br />
+		<div style="background:#FF9"><br />
 		<table class="admintable">
         <!--Tours code-->
 		<tr>
@@ -108,7 +98,7 @@
 				</label>
 			</td>
 			<td>
-				<input class="text_area" type="text" name="tcode" id="tcode" size="32" maxlength="250" value="" />
+				<input class="text_area req" type="text" name="tcode" id="tcode" size="32" maxlength="250" value="" />
 			</td>
 		</tr>
         
@@ -120,7 +110,7 @@
 				</label>
 			</td>
 			<td>
-				<input class="text_area" type="text" name="hotel" id="hotel" size="32" maxlength="250" value="" />
+				<input class="text_area req" type="text" name="hotel" id="hotel" size="32" maxlength="250" value="" />
 			</td>
 		</tr>
         
@@ -132,7 +122,7 @@
 				</label>
 			</td>
 			<td>
-				<input class="text_area" type="text" name="departuredate" id="departuredate" size="20" maxlength="250" value="" />
+				<input class="text_area req" type="text" name="departuredate" id="departuredate" size="20" maxlength="250" value="" />
 			</td>
 		</tr>
         
@@ -144,12 +134,19 @@
 				</label>
 			</td>
 			<td>
-				Single: &nbsp; <input class="text_area" type="text" name="rp_single" id="rp_single" size="12" maxlength="250" value="" />
-		
-        
-				Double: &nbsp;<input class="text_area" type="text" name="" />
-		
-				Twin: &nbsp;<input class="text_area" type="text" name="rp_twin" id="rp_twin" size="12" maxlength="250" value="" />
+				<? echo JText::_('Single')?>: &nbsp; 
+                <select id="rp_single" name="rp_single">
+                	<?php for($i=0;$i<30;$i++){echo "<option value='$i'>$i</optoin>";}?>
+                </select>
+                
+				<?php echo JText::_('Double') ?>: &nbsp;<select id="rp_double" name="rp_double">
+                	<?php for($i=0;$i<30;$i++){echo "<option value='$i'>$i</optoin>";}?>
+                </select>
+                	
+				<?php echo JText::_('Twin') ?>: &nbsp;
+                <select id="rp_twin" name="rp_twin">
+                	<?php for($i=0;$i<30;$i++){echo "<option value='$i'>$i</optoin>";}?>
+                </select>
 			</td>
 		</tr>
         
@@ -161,7 +158,10 @@
 				</label>
 			</td>
 			<td>
-				<input class="text_area" type="text" name="np_adult" id="np_adult" size="12" maxlength="250" value="" />
+            	<select id="np_adult" name="np_adult">
+                	<?php for($i=0;$i<30;$i++){echo "<option value='$i'>$i</optoin>";}?>
+                </select>
+				
 			</td>
 		</tr>
         
@@ -173,7 +173,9 @@
 				</label>
 			</td>
 			<td>
-				<input class="text_area" type="text" name="np_child" id="np_child" size="12" maxlength="250" value="" />
+            	<select id="np_child" name="np_child">
+                	<?php for($i=0;$i<30;$i++){echo "<option value='$i'>$i</optoin>";}?>
+                </select>
 			</td>
 		</tr>
         
@@ -181,7 +183,7 @@
         <tr>
 			<td width="100" align="right" class="key">
 				<label for="detail">
-					<?php echo JText::_( 'Twin' ); ?>:
+					<?php echo JText::_( 'Detail' ); ?>:
 				</label>
 			</td>
 			<td>
@@ -190,14 +192,69 @@
 		</tr>
         
 
-	</table>
-	</fieldset>
+	</table><br />
+</div>
     
 </div>
-<div class="clr"></div>
+<div class="clr"></div><hr />
+
+<div align="center"> <input type="submit" value="Booking" id="Booking" name="Booking" /> </div>
 
 <input type="hidden" name="option" value="com_ttbooking" />
 <input type="hidden" name="id" value="" />
-<input type="hidden" name="task" value="" />
+<input type="hidden" name="task" value="save" />
 <input type="hidden" name="controller" value="ttbooking" />
 </form>
+<script>
+var o = document.getElementsByClassName("req");
+function chk()
+{
+	bReset();
+	var j = 0;
+	for (i = 0; i < o.length; i++)
+	{
+		if (o[i].value == "" || o[i].value=="..Require..")
+		{
+			j++;
+			o[i].style.border = "1px solid red";
+			o[i].value="..Require..";
+		}
+	}
+	if (j>0){alert('field is require !');return false;}
+}
+function bReset()
+{
+	for (i = 0; i < o.length; i++)
+	{
+		o[i].style.border = "1px #ccc solid";
+	}
+}
+
+var elInput = document.getElementById("bform").getElementsByTagName("input");
+var elTextarea = document.getElementById("bform").getElementsByTagName("textarea"); 
+
+var elAll = new Array();
+for (i = 0; i < elTextarea.length; i++)
+{
+	elAll.push(elTextarea[i]);
+}
+for (i = 0; i < elInput.length; i++)
+{
+	elAll.push(elInput[i]);
+}
+
+for (i = 0; i < elAll.length; i++)
+{
+	elAll[i].onfocus = function()
+	{
+		this.value = "..Require..";
+		if(this.value=="..Require..")
+		{
+			this.value="";
+			document.getElementById('Booking').setAttribute('value','Booking');
+		}
+	}
+
+}
+
+</script>
