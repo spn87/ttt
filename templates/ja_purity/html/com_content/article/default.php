@@ -136,10 +136,11 @@ if (
 <span class="article_separator">&nbsp;</span>
 
 <div style="margin-top:-20px;">
-
+	<?php if ($this->article->sectionid == 2):?>
 	<a href="index.php?option=com_ttbooking&view=ttbooking&id=<?php print_r($this->article->id);?>">
 			<img src="images/stories/Booking.gif" />
     </a>
+    <?php endif;?>
 </div>
 
 <?php echo $this->article->event->afterDisplayContent; ?>
