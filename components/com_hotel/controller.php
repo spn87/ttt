@@ -36,7 +36,7 @@ class HotelController extends JController
 					<td><?php echo $row->name?></td>
 					<td>
 						<?php for($j = 1; $j <= $row->star; $j++):?>
-						<img src="images/star.png" />
+						<img src="images/star.png" width="10px" />
 						<?php endfor;?>
 					</td>
 					<td>
@@ -70,45 +70,50 @@ class HotelController extends JController
 		?>
 		<h1><?php echo $row->gname;?></h1>
 		<div><h2><?php echo $row->name?></h2></div>
+		<div style="text-align:center;	">
+			<?php if ($row->image != ""):?>
+			<img src="images/stories/hotels/<?php echo $row->image?>" />
+			<?php endif; ?>
+		</div>
 		<div>
 			<?php echo $row->description;?>
 		</div>
-		<h2>Hotel detail</h2>
+		<h2><?php echo JText::_("Hotel_detail");?></h2>
 		<table class="hotel-grid">
 			<tr>
-				<td>Star</td>
+				<td><?php echo JText::_("ABK_START")?></td>
 				<td><?php echo $row->star?></td>
 			</tr>
 			<tr>
-				<td>Low rate</td>
+				<td><?php echo JText::_("ABK_LOW_RATE")?></td>
 				<td><?php echo $row->min_rate?></td>
 			</tr>
 			<tr>
-				<td>High rate</td>
+				<td><?php echo JText::_("ABK_HIGH_RATE")?></td>
 				<td><?php echo $row->max_rate?></td>
 			</tr>
 			<tr>
-				<td>Checkin time</td>
+				<td><?php echo JText::_("ABK_CHECKIN_TIME")?></td>
 				<td><?php echo $row->checkin?></td>
 			</tr>
 			<tr>
-				<td>Checkout time</td>
+				<td><?php echo JText::_("ABK_CHECKOUT_TIME")?></td>
 				<td><?php echo $row->checkout;?></td>
 			</tr>
 			<tr>
-				<td>Number of floor</td>
+				<td><?php echo JText::_("ABK_NUM_FLOOR")?></td>
 				<td><?php echo $row->floor_num;?></td>
 			</tr>
 			<tr>
-				<td>Number of Restaurent</td>
+				<td><?php echo JText::_("ABK_NUM_RES")?></td>
 				<td><?php echo $row->rest_num;?></td>
 			</tr>
 			<tr>
-				<td>Number of room</td>
+				<td><?php echo JText::_("ABK_NUM_ROOM")?></td>
 				<td><?php echo $row->room_num;?></td>
 			</tr>
 			<tr>
-				<td>Built in (year)</td>
+				<td><?php echo JText::_("ABK_BUILT")?></td>
 				<td><?php echo $row->built;?></td>
 			</tr>
 		</table>

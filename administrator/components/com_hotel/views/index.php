@@ -55,13 +55,17 @@ class HotelViewHotel extends JView
 			$hotelGroupOpt .= "<option value='".$g->id."' ".($g->id == $data["g_id"] ? "selected='selected'":"").">".$g->name."</option>";
 		}
 		?>
-		<form class="adminForm hotel" action="index.php?option=com_hotel&task=save" method="post">
+		<form class="adminForm hotel" action="index.php?option=com_hotel&task=save" method="post" enctype="multipart/form-data">
 			<table class="adminlist">
 				<tr>
 					<td>Province</td>
 					<td>
 						<select name="g_id"><?php echo $hotelGroupOpt;?></select>
 					</td>
+				</tr>
+				<tr>
+					<td>Image</td>
+					<td><input type="file" name="image" /> <?php echo ($data["image"] != "") ? "<a href='".JURI::base()."../images/stories/hotels/".$data["image"]."'>View</a>":""?></td>
 				</tr>
 				<tr>
 					<td>Hotel Name</td>

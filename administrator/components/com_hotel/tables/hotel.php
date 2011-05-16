@@ -18,6 +18,7 @@ class TableHotel extends JTable
 	var $parking_service = null;
 	var $s24 = null;
 	var $room_volt = null;
+	var $image = null;
 	
 	function __construct(&$db)
 	{
