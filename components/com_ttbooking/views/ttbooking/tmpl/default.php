@@ -5,6 +5,24 @@
 jimport("countries.country");
 $contries = countryArray();
 
+$hotelTypes = array("None","Deluxe","Suite","Superior");
+
+$tour = array();
+$tour["tour_code"] = "";
+$tour["idt"] = null;
+if (JRequest::getCmd("id"))
+{
+	$id = JRequest::getCmd("id",0);
+	$db = JFactory::getDBO();
+	
+	$query = "SELECT id,alias FROM #__content WHERE id='$id'";
+	$db->setQuery($query);
+	
+	$tour = $db->loadAssoc();
+	$tour["tour_code"] = $tour["alias"];
+	$tour["idt"] = $tour["id"];
+	
+}
 ?>
 <style>
 	.text_area{border:1px #096 solid;}
@@ -108,7 +126,7 @@ $contries = countryArray();
 				</label>
 			</td>
 			<td>
-				<input class="text_area req" type="text" name="tcode" id="tcode" size="32" maxlength="250" value="" />
+				<input class="text_area req" type="text" name="tcode" id="tcode" size="32" maxlength="250" value="<?php echo $tour["tour_code"];?>" <?php echo ($tour["tour_code"]!="") ? " readonly='readonly'":""?>/>
 			</td>
 		</tr>
         
@@ -120,7 +138,11 @@ $contries = countryArray();
 				</label>
 			</td>
 			<td>
-				<input class="text_area req" type="text" name="hotel" id="hotel" size="32" maxlength="250" value="" />
+				<select class="text_area req" type="text" name="hotel" id="hotel">
+				<?php foreach ($hotelTypes as $t):?>
+					<option value="<?php echo $t?>"><?php echo $t;?></option>
+				<?php endforeach;?>
+				</select>
 			</td>
 		</tr>
         
@@ -214,6 +236,7 @@ $contries = countryArray();
 <input type="hidden" name="id" value="" />
 <input type="hidden" name="task" value="save" />
 <input type="hidden" name="controller" value="ttbooking" />
+<input type="hidden" name="idt" value="<?php echo $tour["idt"];?>" />
 </form>
 <script>
 var o = document.getElementsByClassName("req");
@@ -257,6 +280,10 @@ for (i = 0; i < elAll.length; i++)
 {
 	elAll[i].onfocus = function()
 	{
+		if (this.getAttribute("readonly"))
+		{
+			return true;
+		}
 		this.value = "..Require..";
 		if(this.value=="..Require..")
 		{

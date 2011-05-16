@@ -136,8 +136,9 @@ if (
 <span class="article_separator">&nbsp;</span>
 
 <div style="margin-top:-20px;">
-	<a href="http://www.abktours.com/index.php?option=com_booking&view=booking&Itemid=61&id=<?php echo $_GET['id']?>&lang=<?php echo $_GET['lang']?>">
-			<img src="images/stories/Booking.gif" /> 
+
+	<a href="index.php?option=com_ttbooking&view=ttbooking&id=<?php print_r($this->article->id);?>">
+			<img src="images/stories/Booking.gif" />
     </a>
 </div>
 

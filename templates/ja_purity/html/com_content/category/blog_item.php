@@ -17,6 +17,7 @@ defined('_JEXEC') or die('Restricted access'); ?>
 	<?php else : ?>
 		<?php echo $this->escape($this->item->title); ?>
 	<?php endif; ?>
+ 	 (<?php echo "code: <strong>" .$this->item->alias."</strong>";?>)
 </h2>
 <?php endif; ?>
 
@@ -145,7 +146,7 @@ if (
 
 
 <div style="margin-top:-20px;">
-	<a href="http://www.abktours.com/index.php?option=com_booking&view=booking&Itemid=61&id=<?php echo $_GET['id']?>&lang=<?php echo $_GET['lang']?>">
+	<a href="index.php?option=com_ttbooking&view=ttbooking&id=<?php print_r($this->item->id);?>">
 			<img src="images/stories/Booking.gif" />
     </a>
 </div>
