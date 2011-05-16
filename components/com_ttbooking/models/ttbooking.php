@@ -21,6 +21,8 @@ class ttbookingModelttbooking extends JModel
 
 	function store()
 	{	
+		
+	
 		$row =& $this->getTable();
 
 		$data = JRequest::get( 'post' );
@@ -53,6 +55,26 @@ class ttbookingModelttbooking extends JModel
 			$this->setError( $row->getErrorMsg() );
 			return false;
 		}
+	
+		jimport("phpmailer.phpmailer");
+		$mailer = new PHPMailer();
+		
+		$mailer->Subject = "Booking";
+		$mailer->IsHTML(true);
+		
+		$mailer->AddAddress("channkrissna@yahoo.com","Administrator");
+		
+		$mailer->From = "info@abktours.com";
+		$mailer->FromName = "System";
+		
+		require_once JPATH_ADMINISTRATOR.DS."components".DS."com_ttbooking".DS."controller.php";
+		$con = new ttbookingsController();
+		
+		$con->getBooking($row->id);
+		$mailer->Body = $con->getContentView($bookingData);
+		
+		if (!$mailer->Send()){}
+		
 		return true;
 	}
 }

@@ -12,36 +12,10 @@ class ttbookingsController extends JController
 		parent::display();
 	}
 	
-	function report()
+	function getContentView($row)
 	{
-		$act=JRequest::getWord('controller');
-		$id=JRequest::getVar('cid');
-		for($i=0;$i<count($id);$i++){$stid=$stid.$id[$i].",";}
-		$stid=$stid."0";
-		
-		$db = JFactory::getDBO();
-		$db->setQuery("SELECT * FROM jos_ttbooking where id in ($stid)");
-		$db->query();
-		$booking=$db->loadObjectList();
-		
-		?>
-
-    <input type="button" value="Print" onclick="printSelection(document.getElementById('txtHint'));return false " /> 
-     <div id="txtHint" style="margin-left:70px;">
-     <br />
-    <font size="+1">Abktour Col,LTD</font>&nbsp;&nbsp;
-	<?php 
-		if($act=='ttbooking')echo 'Booking';   
-		if($act=='ttbookingcheckin') echo 'Checkin';
-		if($act=='ttbookingcheckout') echo 'Chectout';
-	?>
-    <hr /> 
-<?php
-	
-	$k = 0;
-	for ($i=0, $n=count($booking ); $i < $n; $i++)	
-	{
-		$row = &$booking[$i];
+		echo "<hr />";
+		print_r($row);
 	?>
 <font size="+2"><u><?php echo JText::_('Tour code')?>:&nbsp <?php echo $row->id;?></u></font><br /><br />
 <font size="+1"><?php echo JText::_('Personal Information')?></font><br />
@@ -74,10 +48,55 @@ class ttbookingsController extends JController
   	<li><?php echo JText::_('Detail')?>:&nbsp<?php echo $row->detail?></li>
 </ul>
 <hr />
-<?php $k = 1 - $k; }?>
+	<?php $k = 1 - $k; 
+	}
+	
+	function getBooking($id)
+	{
+		$db = JFactory::getDBO();
+		$db->setQuery("SELECT * FROM jos_ttbooking where id in ($id)");
+		$db->query();
+		$booking=$db->loadObject();
+		
+		return $booking;
+	}
+	
+	function report()
+	{
+		$act=JRequest::getWord('controller');
+		$id=JRequest::getVar('cid');
+		for($i=0;$i<count($id);$i++){$stid=$stid.$id[$i].",";}
+		$stid=$stid."0";
+		
+		$db = JFactory::getDBO();
+		$db->setQuery("SELECT * FROM jos_ttbooking where id in ($stid)");
+		$db->query();
+		$booking=$db->loadObjectList();
+		
+		?>
+
+    <input type="button" value="Print" onclick="printSelection(document.getElementById('txtHint'));return false " /> 
+     <div id="txtHint" style="margin-left:70px;">
+     <br />
+    <font size="+1">Abktour Col,LTD</font>&nbsp;&nbsp;
+	<?php 
+		if($act=='ttbooking')echo 'Booking';   
+		if($act=='ttbookingcheckin') echo 'Checkin';
+		if($act=='ttbookingcheckout') echo 'Chectout';
+	?>
+    <hr /> 
+<?php
+	
+	$k = 0;
+	for ($i=0, $n=count($booking ); $i < $n; $i++)	
+	{
+		$row = &$booking[$i];
+		echo $this->getContentView($row);
+	}?>
 </div>	
 	<?php 
-}}?>
+}
+}?>
 
 
 <script type="text/javascript">

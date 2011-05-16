@@ -1,7 +1,11 @@
 
 
 <?php defined('_JEXEC') or die('Restricted access'); ?>
+<?php 
+jimport("countries.country");
+$contries = countryArray();
 
+?>
 <style>
 	.text_area{border:1px #096 solid;}
 </style>
@@ -41,7 +45,10 @@
 				</label>
 			</td>
 			<td>
-				<input class="text_area req" type="text" name="gender" id="gender" size="12" maxlength="250" value="" />
+				<select  class="text_area req" type="text" name="gender" id="gender">
+					<option value="Male">Male</option>
+					<option value"Female">Female</option>
+				</select>
 			</td>
 		</tr>
         
@@ -65,7 +72,11 @@
 				</label>
 			</td>
 			<td>
-				<input class="text_area req" type="text" name="countries" id="countries" size="32" maxlength="250" value="" />
+				<select  class="text_area req" type="text" name="countries" id="countries">
+					<?php foreach ($contries as $k=>$v):?>
+					<option value="<?php echo $v?>"><?php echo $v;?></option>
+					<?php endforeach;?>
+				</select>
 			</td>
 		</tr>
         
