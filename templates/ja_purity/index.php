@@ -105,7 +105,8 @@ function makeTransBG() {
 	$(function() {
 		$( "#dob" ).datepicker({
 			changeMonth: true,
-			changeYear: true
+			changeYear: true,
+			dateFormat: "yy-mm-dd"
 		});
 	});
 	</script>
@@ -114,7 +115,8 @@ function makeTransBG() {
 	$(function() {
 		$( "#departuredate" ).datepicker({
 			changeMonth: true,
-			changeYear: true
+			changeYear: true,
+			dateFormat: "yy-mm-dd"
 		});
 	});
 	</script>

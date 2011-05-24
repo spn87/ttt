@@ -16,16 +16,12 @@ defined( '_JEXEC' ) or die( 'Restricted access' );
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php echo  $this->language; ?>" lang="<?php echo  $this->language; ?>" dir="<?php echo  $this->direction; ?>" id="minwidth" >
 <head>
 <jdoc:include type="head" />
-
-
-	<link rel="stylesheet" href="templates/<?php echo  $this->template ?>/datetimepicker/jquery00.css">
-	<script src="templates/<?php echo  $this->template ?>/datetimepicker/jquery-1.js"></script>
-	<script src="templates/<?php echo  $this->template ?>/datetimepicker/jquery00.js"></script>
-	<script src="templates/<?php echo  $this->template ?>/datetimepicker/jquery01.js"></script>
-	<script src="templates/<?php echo  $this->template ?>/datetimepicker/jquery02.js"></script>
-	<link rel="templates/<?php echo  $this->template ?>/stylesheet" href="datetimepicker/demos000.css">
-    
+<?php if (isset($_GET['option']) && $_GET['option']=='com_ttbooking'):?>
+	<script src="../templates/ja_purity/js/jquery.min.js"></script>
+	<script src="../templates/ja_purity/js/jquery-ui-1.8.13.custom.min.js"></script>
+	<link rel="stylesheet" href="../templates/ja_purity/css/jquery/themes/base/jquery.ui.all.css" />
 	
+<?php endif;?>	
     
 <link rel="stylesheet" href="templates/system/css/system.css" type="text/css" />
 
@@ -59,7 +55,8 @@ defined( '_JEXEC' ) or die( 'Restricted access' );
 	$(function() {
 		$( "#datecheck" ).datepicker({
 			changeMonth: true,
-			changeYear: true
+			changeYear: true,
+			dateFormat: "yy-mm-dd"
 		});
 	});
 	</script>
@@ -68,7 +65,8 @@ defined( '_JEXEC' ) or die( 'Restricted access' );
 	$(function() {
 		$( "#dob" ).datepicker({
 			changeMonth: true,
-			changeYear: true
+			changeYear: true,
+			dateFormat: "yy-mm-dd"
 		});
 	});
 	</script>
@@ -77,7 +75,8 @@ defined( '_JEXEC' ) or die( 'Restricted access' );
 	$(function() {
 		$( "#departuredate" ).datepicker({
 			changeMonth: true,
-			changeYear: true
+			changeYear: true',
+			dateFormat: "yy-mm-dd"
 		});
 	});
 	</script>
