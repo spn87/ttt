@@ -23,14 +23,12 @@ include_once (dirname(__FILE__).DS.'/ja_vars.php');
 <head>
 <jdoc:include type="head" />
 <?php JHTML::_('behavior.mootools'); ?>
-
-	<link rel="stylesheet" href="templates/<?php echo  $this->template ?>/datetimepicker/jquery00.css">
-	<script src="<?php echo $tmpTools->templateurl(); ?>/datetimepicker/jquery-1.js"></script>
-	<script src="<?php echo $tmpTools->templateurl(); ?>/datetimepicker/jquery00.js"></script>
-	<script src="<?php echo $tmpTools->templateurl(); ?>/datetimepicker/jquery01.js"></script>
-	<script src="<?php echo $tmpTools->templateurl(); ?>/datetimepicker/jquery02.js"></script>
-	<link rel="<?php echo $tmpTools->templateurl(); ?>/stylesheet" href="datetimepicker/demos000.css">
-
+	
+<?php if (isset($_GET['option']) && $_GET['option']!='com_content'):?>
+<script src="templates/ja_purity/js/jquery.min.js"></script>
+	<script src="templates/ja_purity/js/jquery-ui-1.8.13.custom.min.js"></script>
+	<link rel="stylesheet" href="templates/ja_purity/css/jquery/themes/base/jquery.ui.all.css" />
+<?php endif;?>	
 <link rel="stylesheet" href="<?php echo $tmpTools->baseurl(); ?>templates/system/css/system.css" type="text/css" />
 <link rel="stylesheet" href="<?php echo $tmpTools->baseurl(); ?>templates/system/css/general.css" type="text/css" />
 <link rel="stylesheet" href="<?php echo $tmpTools->templateurl(); ?>/css/template.css" type="text/css" />

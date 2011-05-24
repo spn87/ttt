@@ -1,4 +1,4 @@
-<?php
+	<?php
 
 defined('_JEXEC') or die();
 
@@ -71,8 +71,9 @@ class ttbookingModelttbooking extends JModel
 		$con = new ttbookingsController();
 		
 		$con->getBooking($row->id);
-		$mailer->Body = $con->getContentView($bookingData);
-		
+		//$mailer->Body = $con->getContentView($bookingData);
+		$con->getContentView($bookingData);
+		exit();
 		if (!$mailer->Send()){}
 		
 		return true;
