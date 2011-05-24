@@ -14,41 +14,37 @@ class ttbookingsController extends JController
 	
 	function getContentView($row)
 	{
-		echo "<hr />";
-		print_r($row);
-	?>
-<font size="+2"><u><?php echo JText::_('Tour code')?>:&nbsp <?php echo $row->id;?></u></font><br /><br />
-<font size="+1"><?php echo JText::_('Personal Information')?></font><br />
-<ul style="list-style:square;font-size:16px;">   
- 	<li><?php echo JText::_('Tour code')?>:&nbsp <?php echo $row->id;?> 
-	<li><?php echo JText::_('Customer Name')?>:&nbsp <?php echo $row->fullname;?></li>
-	<li><?php echo JText::_('Address')?>:&nbsp <?php echo $row->address;?></li>
-  	<li><?php echo JText::_('Gender')?>:&nbsp<?php echo $row->gender;?></li>
-  	<li><?php echo JText::_('Date of Birth')?>:&nbsp<?php echo $row->dob?></li>
-  	<li><?php echo JText::_('Country')?>:&nbsp<?php echo $row->countries?></li>
-  	<li><?php echo JText::_('E-mail')?>:&nbsp<?php echo $row->mail?></li>
-    
-</ul>
-
-<font size="+1"><?php echo JText::_('Tour Information')?></font><br />
-
-<ul style="list-style:square;font-size:16px;">
-  	<li><?php echo JText::_('Tourcode')?>:&nbsp<?php echo $row->tcode?></li>
-  	<li><?php echo JText::_('Hotel')?>:&nbsp<?php echo $row->hotel?></li>
-  	<li><?php echo JText::_('ID')?>:&nbsp<?php echo $row->idt?></li>
-  	<li><?php echo JText::_('Departure Date')?>:&nbsp<?php echo $row->departuredate?></li>
+		$tourCode = JText::_('Tour code');
+		$html = "";
+		$html .='<font size="+2"><u>'. $tourCode.':&nbsp '. $row->id.'</u></font><br /><br />';
+		$html .='<font size="+1">'.JText::_('Personal Information').'</font><br />';
+		$html .='<ul style="list-style:square;font-size:16px;">';
+		$html .='<li>'. JText::_('Tour code').':&nbsp '. $row->id.'</li>';
+		$html .='<li>'. JText::_('Customer Name').':&nbsp '. $row->fullname.'</li>';
+		$html .='<li>'.JText::_('Address').':&nbsp '. $row->address.'</li>';
+		$html .='<li>'.JText::_('Gender').':&nbsp'. $row->gender.'</li>';
+		$html .='<li>'. JText::_('Date of Birth').':&nbsp'. $row->dob.'</li>';
+		$html .='<li>'. JText::_('Country').':&nbsp'. $row->countries.'</li>';
+		$html .='<li>'. JText::_('E-mail').':&nbsp'. $row->mail.'</li></ul>';
+		$html .='<font size="+1">'. JText::_('Tour Information').'</font><br />';
+		
+		$html .='<ul style="list-style:square;font-size:16px;"><li>'. JText::_('Tourcode').':&nbsp'. $row->tcode.'</li>';
+		$html .='	<li>'. JText::_('Hotel').':&nbsp'. $row->hotel.'</li>
+  	<li>'. JText::_('ID').':&nbsp'. $row->idt.'</li>
+  	<li>'. JText::_('Departure Date').':&nbsp'. $row->departuredate.'</li>
   	<li>
-    	<?php echo JText::_('Room Preference')?>:<?php echo JText::_('Single')?>&nbsp<?php echo $row->rp_single?>
-		&nbsp&nbsp<?php echo JText::_('Double')?>:&nbsp<?php echo $row->rp_double?>
-		&nbsp&nbsp<?php echo JText::_('Twin')?>:&nbsp<?php echo $row->rp_twin?>
+    	'. JText::_('Room Preference').':'. JText::_('Single').'&nbsp'. $row->rp_single.'
+		&nbsp&nbsp'. JText::_('Double').':&nbsp'. $row->rp_double.'
+		&nbsp&nbsp'. JText::_('Twin').':&nbsp'. $row->rp_twin.'
     </li>
   	
-  	<li><?php echo JText::_('Adult')?>:&nbsp<?php echo $row->np_adult?></li>
-  	<li><?php echo JText::_('Chile')?>:&nbsp<?php echo $row->np_child?></li>
-  	<li><?php echo JText::_('Detail')?>:&nbsp<?php echo $row->detail?></li>
-</ul>
-<hr />
-	<?php $k = 1 - $k; 
+  	<li>'. JText::_('Adult').':&nbsp'. $row->np_adult.'</li>
+  	<li>'. JText::_('Chile').':&nbsp'. $row->np_child.'</li>
+  	<li>'. JText::_('Detail').':&nbsp'. $row->detail.'</li>';
+
+ 
+	
+		return $html;
 	}
 	
 	function getBooking($id)

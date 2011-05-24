@@ -70,10 +70,8 @@ class ttbookingModelttbooking extends JModel
 		require_once JPATH_ADMINISTRATOR.DS."components".DS."com_ttbooking".DS."controller.php";
 		$con = new ttbookingsController();
 		
-		$con->getBooking($row->id);
-		//$mailer->Body = $con->getContentView($bookingData);
-		$con->getContentView($bookingData);
-		exit();
+		$bookingData = $con->getBooking($row->id);
+		$mailer->Body = $con->getContentView($bookingData);
 		if (!$mailer->Send()){}
 		
 		return true;
