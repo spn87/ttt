@@ -20,7 +20,7 @@ class ttbookingsController extends JController
 		$html .='<font size="+1">'.JText::_('Personal Information').'</font><br />';
 		$html .='<ul style="list-style:square;font-size:16px;">';
 		$html .='<li>'. JText::_('Tour code').':&nbsp '. $row->id.'</li>';
-		$html .='<li>'. JText::_('Customer Name').':&nbsp '. $row->fullname.'</li>';
+		$html .='<li>'. JText::_('Customer Name').': '. $row->fullname.'</li>';
 		$html .='<li>'.JText::_('Address').':&nbsp '. $row->address.'</li>';
 		$html .='<li>'.JText::_('Gender').':&nbsp'. $row->gender.'</li>';
 		$html .='<li>'. JText::_('Date of Birth').':&nbsp'. $row->dob.'</li>';
